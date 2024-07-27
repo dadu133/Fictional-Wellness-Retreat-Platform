@@ -1,0 +1,14 @@
+.navbar{
+    background-color: rgb(27, 50, 82);
+    color: #fff;
+    font-weight: bold;
+}
+.background-yoga{
+    background-image: url("./1.jpg");
+    height: 50vh;
+    width: 97vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
