@@ -2,23 +2,18 @@ import React, { useEffect, useState } from 'react'
 import data from './data.json'
 import Item from './Item'
 export default function Detailcontainer(props) {
- let d=new Date();  
-  let [showdata,setshowdata]=useState(data.filter((item)=>item.location.toLowerCase().includes(props.query.toLowerCase())))
+   let [showdata,setshowdata]=useState(data.filter((item)=>item.location.toLowerCase().includes(props.query.toLowerCase())))
   useEffect(()=>{
     setshowdata(data.filter((item)=>item.location.toLowerCase().includes(props.query.toLowerCase())))
   },[props.query])
   useEffect(()=>{
-    
     setshowdata(data.filter((item)=>item.type.toLowerCase().includes(props.itemtype.toLowerCase())))
   },[props.itemtype])
-  useEffect(()=>{
 
-    setshowdata(data.filter((item)=>d.toUTCString(item.date).includes(props.itemtype.toLowerCase())))
-     
-  },[props.itemdate])
   return (
     <>
       <div className='container-detail flex bg-[#E0D9CF] w-[100vw] flex-wrap max-md:flex-col'>
+        {showdata.length===0 && "No items to display"}
         {showdata.map((item) => {
           return <Item key={item.id} data={item}></Item>
         })}
